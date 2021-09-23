@@ -1,0 +1,58 @@
+{
+  "speakers": [
+    { "id": 1, "name": "Sergey Brin" },
+    { "id": 2, "name": "Jeff Bezos" },
+    { "id": 3, "name": "Mark Zuckerberg" }
+  ],
+  "languages": [
+    { "id": 1, "name": "English" },
+    { "id": 2, "name": "Russian" },
+    { "id": 3, "name": "Spanish" }
+  ],
+  "organisations": [
+    { "id": 1, "name": "Google" },
+    { "id": 2, "name": "Amazon" },
+    { "id": 3, "name": "Facebook" }
+  ],
+  "lectures": [
+    {
+      "id": 111,
+      "list": [
+        {
+          "id": 1,
+          "name": "WEB Security. ENG"
+        },
+        {
+          "id": 2,
+          "name": "Searching optimization. ENG"
+        }
+      ]
+    },
+    {
+      "id": 221,
+      "list": [
+        {
+          "id": 1,
+          "name": "How to sale books. ENG"
+        },
+        {
+          "id": 2,
+          "name": "Optimizations. ENG"
+        }
+      ]
+    },
+    {
+      "id": 331,
+      "list": [
+        {
+          "id": 1,
+          "name": "GraphQl lecture. ENG"
+        },
+        {
+          "id": 2,
+          "name": "About Facebook. ENG"
+        }
+      ]
+    }
+  ]
+}

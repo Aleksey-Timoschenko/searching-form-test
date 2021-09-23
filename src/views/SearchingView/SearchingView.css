@@ -1,0 +1,16 @@
+.searching-view {
+    margin: 32px;
+}
+
+.searching-form-wrapper {
+    border: 1px solid grey;
+
+    padding: 8px;
+}
+
+.searching-result-wrapper {
+    border: 1px solid grey;
+
+    margin-top: 16px;
+    padding: 8px;
+}
