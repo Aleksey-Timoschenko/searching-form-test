@@ -107,11 +107,11 @@ const SearchForm = props => {
             validation={formValidationRules}
         >
             {
-                onChangeCallback => (
+                onSaveFieldValue => (
                     <Fragment>
                         <div className={'field-wrapper'}>
                             <TextField
-                                onChange={onChangeCallback}
+                                onChange={onSaveFieldValue}
                                 name={FIELDS_NAMES.ORGANISATION}
                                 label={SEARCHING_FORM_LITERALS.ORGANISATION_FIELD_LABEL}
                                 initialValue={DEFAULT_FORM_INITIAL_VALUES.organisation}
@@ -121,21 +121,21 @@ const SearchForm = props => {
                         <div className={'field-wrapper'}>
                             <SelectField
                                 optionsList={speakersList}
-                                onChange={onChangeCallback}
+                                onChange={onSaveFieldValue}
                                 name={FIELDS_NAMES.SPEAKER}
                                 label={SEARCHING_FORM_LITERALS.SPEAKER_SELECT_FIELD_LABEL}
                                 initialValue={DEFAULT_FORM_INITIAL_VALUES.speaker}
-                                isRequired
+                                isRequired={true}
                             />
                         </div>
                         <div className={'field-wrapper'}>
                             <SelectField
                                 optionsList={languagesList}
-                                onChange={onChangeCallback}
+                                onChange={onSaveFieldValue}
                                 name={FIELDS_NAMES.LANGUAGE}
                                 label={SEARCHING_FORM_LITERALS.LANGUAGE_SELECT_FIELD_LABEL}
                                 initialValue={DEFAULT_FORM_INITIAL_VALUES.language}
-                                isRequired
+                                isRequired={true}
                             />
                         </div>
                         <Button

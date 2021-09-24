@@ -6,6 +6,8 @@ import { isArrayEmpty } from '../../helpers/arrayHelper/arrayHelper';
 
 import List from '../List/List';
 
+import './Form.css';
+
 const DEFAULT_FORM_ERRORS_VALUE = [];
 
 const Form = props => {

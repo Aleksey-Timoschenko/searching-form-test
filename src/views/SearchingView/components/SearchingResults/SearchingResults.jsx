@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import List from '../../../../components/List/List';
@@ -39,4 +40,4 @@ SearchingResults.propTypes = {
     searchingResult: [],
 }
 
-export default SearchingResults;
+export default React.memo(SearchingResults);
