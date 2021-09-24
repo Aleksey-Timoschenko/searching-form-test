@@ -1,4 +1,4 @@
-import { fetchData } from './fetchHelper';
+import { fetchData, fetchDataInParallel } from './fetchHelper';
 
 describe('tests for fetch helper', () => {
     describe('tests for fetchData method', () => {
@@ -40,6 +40,24 @@ describe('tests for fetch helper', () => {
             });
 
             expect(result).toEqual(null);
+        });
+    });
+
+    describe('tests for fetchDataInParallel method', () => {
+        test('all data returns successfully', async () => {
+            const fetchList = [ Promise.resolve(1), Promise.resolve(2) ]
+
+            const result = await fetchDataInParallel(fetchList);
+
+            expect(result).toEqual([ 1, 2 ]);
+        });
+
+        test('one request is resolved with error', async () => {
+            const fetchList = [ Promise.resolve(1), Promise.reject('API error') ]
+
+            const result = await fetchDataInParallel(fetchList);
+
+            expect(result).toEqual([ 1, null ]);
         });
     });
 });

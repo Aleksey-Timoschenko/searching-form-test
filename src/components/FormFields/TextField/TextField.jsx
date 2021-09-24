@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types'
 
 import FormField from '../FormField/FormField';
@@ -50,4 +51,4 @@ TextField.defaultProps = {
     initialValue: '',
 }
 
-export default TextField;
+export default React.memo(TextField);

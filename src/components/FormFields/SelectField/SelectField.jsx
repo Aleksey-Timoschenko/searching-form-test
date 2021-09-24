@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import FormField from '../FormField/FormField';
@@ -67,4 +67,4 @@ SelectField.defaultProps = {
     initialValue: '',
 };
 
-export default SelectField;
+export default React.memo(SelectField);

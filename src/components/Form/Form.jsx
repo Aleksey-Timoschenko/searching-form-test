@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import { prepareFormErrors } from '../../services/formService/formService';
 import { isArrayEmpty } from '../../helpers/arrayHelper/arrayHelper';
@@ -19,12 +19,12 @@ const Form = props => {
     const [ formValues, setFormValues ] = useState(initialValues);
     const [ formErrors, setFormErrors ] = useState(DEFAULT_FORM_ERRORS_VALUE);
 
-    const saveFieldValue = event => {
+    const saveFieldValue = useCallback(event => {
         setFormValues(prevValue => ({
             ...prevValue,
             [event.target.id]: event.target.value,
         }))
-    }
+    }, [ setFormValues ]);
 
     const onSubmitCallback = event => {
         if (validation) {

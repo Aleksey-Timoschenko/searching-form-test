@@ -23,6 +23,7 @@ import {
     getSpeakersListForViewing
 } from '../../../../services/searchFormService/searchFormService';
 import { getUrlParams } from '../../../../helpers/urlHelper/urlHelper';
+import { fetchDataInParallel } from '../../../../helpers/fetchHelper/fetchHelper';
 
 import './SearchForm.css';
 
@@ -61,16 +62,22 @@ const SearchForm = props => {
     const [ organisations, setOrganisations ] = useState(DEFAULT_ORGANISATIONS_VALUES);
 
     useEffect(async () => {
-        const speakersList = await getSpeakersListForViewing();
-        const languagesList = await getLanguagesListForViewing();
-        const organisationsForViewing = await getOrganisationsForViewing();
+        const [
+            speakersList,
+            languagesList,
+            organisationsForViewing,
+        ] = await fetchDataInParallel([
+            getSpeakersListForViewing(),
+            getLanguagesListForViewing(),
+            getOrganisationsForViewing(),
+        ]);
 
-        setSpeakersList(speakersList);
-        setLanguagesList(languagesList);
-        setOrganisations(organisationsForViewing);
+        setSpeakersList(speakersList || DEFAULT_LIST_VALUE);
+        setLanguagesList(languagesList || DEFAULT_LIST_VALUE);
+        setOrganisations(organisationsForViewing || DEFAULT_LIST_VALUE);
     }, []);
 
-const onSubmitCallback = async formValues => {
+    const onSubmitCallback = async formValues => {
         const {
             organisation,
             speaker: speakerId,

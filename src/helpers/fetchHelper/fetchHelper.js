@@ -17,4 +17,14 @@ export const fetchData = async ({
     } catch (error) {
         return null;
     }
-}
+};
+
+export const fetchDataInParallel = async (fetchList) => {
+    try {
+        const response = await Promise.allSettled(fetchList);
+
+        return response.map((promise) => promise.value || null);
+    } catch (error) {
+        return [];
+    }
+};
